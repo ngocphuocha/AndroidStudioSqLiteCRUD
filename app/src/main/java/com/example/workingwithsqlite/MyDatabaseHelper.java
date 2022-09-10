@@ -31,7 +31,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_TITLE + " TEXT," +
                 COLUMN_AUTHOR + " TEXT," +
-                COLUMN_PAGES + " TEXT" +
+                COLUMN_PAGES + " INTEGER" +
                 ");";
         db.execSQL(query);
     }
@@ -42,7 +42,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addBook(String title, String author, String pages) {
+    void addBook(String title, String author, int pages) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 

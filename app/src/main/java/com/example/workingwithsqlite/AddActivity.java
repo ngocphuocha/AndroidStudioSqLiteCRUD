@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class AddActivity extends AppCompatActivity {
     EditText title_input, author_input, pages_input;
     Button add_button;
@@ -27,7 +29,7 @@ public class AddActivity extends AppCompatActivity {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(AddActivity.this);
                 myDB.addBook(title_input.getText().toString().trim(),
                         author_input.getText().toString().trim(),
-                        pages_input.getText().toString().trim()
+                        Integer.parseInt(pages_input.getText().toString().trim())
                 );
             }
         });
