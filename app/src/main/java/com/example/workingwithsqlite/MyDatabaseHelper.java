@@ -20,7 +20,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_AUTHOR = "book_author";
     private static final String COLUMN_PAGES = "book_pages";
 
-    public MyDatabaseHelper(@Nullable Context context) {
+    MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -28,12 +28,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
-                " (" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_TITLE + " TEXT," +
-                COLUMN_AUTHOR + " TEXT," +
-                COLUMN_PAGES + " INTEGER" +
-                ");";
+                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_TITLE + " TEXT, " +
+                COLUMN_AUTHOR + " TEXT, " +
+                COLUMN_PAGES + " INTEGER);";
         db.execSQL(query);
     }
 
@@ -64,11 +62,24 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
-
         if (db != null) {
             cursor = db.rawQuery(query, null);
         }
-
         return cursor;
+    }
+
+    void updateData(String row_id, String title, String author, String pages) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TITLE, title);
+        cv.put(COLUMN_AUTHOR, author);
+        cv.put(COLUMN_PAGES, pages);
+
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+        if (result == -1) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
