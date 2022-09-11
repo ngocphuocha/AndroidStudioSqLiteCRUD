@@ -4,10 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.26" />
+        <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.287" />
         <entry key="app/src/main/res/layout/activity_add.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21488211811452673" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_update.xml" value="0.21829710144927536" />
         <entry key="app/src/main/res/layout/my_row.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.34638214111328125" />
       </map>
     </option>
   </component>
