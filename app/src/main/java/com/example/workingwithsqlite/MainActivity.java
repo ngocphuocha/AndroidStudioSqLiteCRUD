@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> book_id, book_title, book_author, book_pages;
     CustomAdapter customAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
         add_button = findViewById(R.id.add_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String test = "test";
+            public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AddActivity.class);
                 startActivity(intent);
             }

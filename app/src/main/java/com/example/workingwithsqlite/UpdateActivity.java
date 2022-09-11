@@ -31,6 +31,10 @@ public class UpdateActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // And only then we call this
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                // Must get input again before update
+                title = title_input.getText().toString().trim();
+                author = author_input.getText().toString().trim();
+                pages = pages_input.getText().toString().trim();
                 myDB.updateData(id, title, author, pages);
             }
         });
