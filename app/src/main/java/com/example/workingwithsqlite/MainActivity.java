@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 myDB.deleteAllData();
 
                 //Refresh activity
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                Intent intent = new Intent(  MainActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
