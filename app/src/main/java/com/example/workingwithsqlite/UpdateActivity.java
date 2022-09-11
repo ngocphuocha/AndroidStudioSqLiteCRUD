@@ -1,5 +1,6 @@
 package com.example.workingwithsqlite;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -26,6 +27,13 @@ public class UpdateActivity extends AppCompatActivity {
 
         // First we call this
         getAndSetIntentData();
+
+        // Set actionbar after getAndSetIntentData method
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle(title);
+        }
+
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

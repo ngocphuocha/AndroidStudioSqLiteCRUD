@@ -16,6 +16,7 @@
         <activity
             android:name=".UpdateActivity"
             android:exported="false"
+            android:parentActivityName=".MainActivity"
             android:label="Update Book" />
         <activity
             android:name=".AddActivity"
